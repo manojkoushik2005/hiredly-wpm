@@ -1,0 +1,83 @@
+extends layout
+
+block content
+  .row.banner
+    .col-12
+      h1 Google SDE 3
+
+  .row
+    .col-12.col-lg-9
+      .row
+        .col-12.col-md-6
+          p.rating
+            i.fas.fa-star
+            i.fas.fa-star
+            i.fas.fa-star
+            i.far.fa-star
+            i.far.fa-star
+          p California
+
+          .card.card-primary
+            .card-block
+              h2.card-title Opening hours(Offline)
+              p.card-text Monday - Friday : 7:00am - 7:00pm
+              p.card-text Saturday : 8:00am - 5:00pm
+              p.card-text Sunday : closed
+
+          .card.card-primary
+            .card-block
+              h2.card-title Skills
+              span.badge.badge-warning
+                i.fa.fa-check
+                | &nbsp;Python
+              | &nbsp;
+              span.badge.badge-warning
+                i.fa.fa-check
+                | &nbsp;Flutter
+              | &nbsp;
+              span.badge.badge-warning
+                i.fa.fa-check
+                | &nbsp;Machine Learning
+        .col-12.col-md-6.location-map
+          .card.card-primary
+            .card-block
+              h2.card-title Location map
+              img.img-fluid.rounded(src='http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=17&size=400x350&sensor=false&markers=51.455041,-0.9690884&scale=2&key=<API Key>')
+
+    .row
+      .col-12
+        .card.card-primary.review-card
+          .card-block
+            a.btn.btn-primary.float-right(href='/location/review/new') ➥ Add review
+            h2.card-title Customer reviews
+            .row.review
+              .col-12.col-md-6.review-header
+                span.rating
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.far.fa-star
+                span.reviewAuthor Jane Doe
+                small.reviewTimestamp 10 March 2020
+              .col-12
+                p The platform is user-friendly, and I quickly found opportunities that matched my skills.
+
+            .row.review
+              .col-12.col-md-6.review-header
+                span.rating
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                span.reviewAuthor John Smith
+                small.reviewTimestamp 22 May 2019
+              .col-12
+                p Excellent experience! The search filters are very effective.
+
+    //- .col-12.col-lg-3
+    //-   p.lead
+    //-     | Hired.ly is on Job portal because it has accessible wifi and space to sit down with your laptop and Search Jobs.
+    //-   p
+    //-     | If you've been and you like it - or if you don't - please leave a review to help other people just like you.
