@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="/css/styles1.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/jobs">Jobs</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+    <h1>Job Listings</h1>
+    <a href="/jobs/add" class="add-job-button">Add Job</a>
+    <ul>
+        <% if (jobs.length === 0) { %>
+            <li>
+                <img src="/images/default.png" alt="Placeholder" />
+                <p>No jobs available. Please add a job.</p>
+            </li>
+        <% } else { %>
+            <% jobs.forEach(job => { %>
+                <li>
+                    <div class="job-card">
+                        <img src="<%= job.image || '/images/default.png' %>" alt="<%= job.title %> Image" style="width: 80px; height: auto; max-height: 80px; object-fit: cover; margin-right: 15px;" />
+                        <div>
+                            <h3><%= job.title %></h3>
+                            <p><strong>Company:</strong> <%= job.company %></p>
+                            <p><strong>Location:</strong> <%= job.location %></p>
+                            <p><strong>Description:</strong> <%= job.description %></p>
+                            <a href="https://www.linkedin.com/jobs/search/?keywords=<%= encodeURIComponent(job.title + ' at ' + job.company) %>" target="_blank" class="apply-button">Apply</a>
+                            <form action="/jobs/delete/<%= job._id %>" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            <% }) %>
+        <% } %>
+    </ul>
+    <footer>
+        <p>&copy; 2024 Hiredly | Job Searching Platform</p>
+      </footer>
+</body>
+</html>
